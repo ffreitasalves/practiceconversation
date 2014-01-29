@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+
+{% block js %}
+  <script src="http://simplewebrtc.com/latest.js"></script> 
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script type="text/javascript">
+  connected = true;
+  var webrtc = new SimpleWebRTC({
+    // the id/element dom element that will hold "our" video
+    localVideoEl: 'localVideo',
+    // the id/element dom element that will hold remote videos
+    remoteVideosEl: 'remotesVideos',
+    // immediately ask for camera access
+    autoRequestMedia: true
+  });
+
+  // we have to wait until it's ready
+  webrtc.on('readyToCall', function () {
+    // you can name it anything
+    webrtc.joinRoom('{{ language }}__{{ room_id }}');
+  });
+
+  window.onbeforeunload = function () {
+    if(connected){
+      $.ajax({
+        type: 'POST',
+        async: false,
+        url: '/leave',
+        data: {room_id: "{{ room_id }}"}
+      });
+      connected = false;
+    }
+  }
+  </script>
+{% endblock %}
+
+
+{% block css %}
+  <style type="text/css">
+  #localVideo {
+    position: fixed;
+    top: 60px;
+    left: 15px;
+    border: 2px solid #d6d6d6;
+    outline: 0px;
+    height: 140px;
+    z-index: 10;
+  }
+
+  #localVideo {
+    top: 110px;
+  }
+
+  #remotes {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 100px;
+    -webkit-perspective: 2000px;
+    -moz-perspective: 2000px;
+    z-index: 1;
+    text-align: center;
+  }
+
+  #remotes video {
+    position: absolute;
+    left: 4000px;
+    height: 200px;
+    -moz-transition: all 1s;
+    -moz-box-sizing: border-box;
+    -webkit-transition: all 1s;
+    -webkit-box-sizing: border-box;
+  }
+  </style>
+{% endblock %}
+
+
+{% block content %}
+  <div class="row">
+    <video height="300" id="localVideo"></video>
+    <div id="remotesVideos"></div>
+  </div>
+
+  <div class="row">
+    <a href="/rooms/{{ language }}">
+      <div class="col-lg-2 col-md-offset-2">
+        <button type="button" class="btn btn-lg">
+          <img style="width:150px" src="/img/{{ language }}.png"><br>
+          {{ language | capitalize }}
+        </button>
+      </div>
+    </a>
+  </div>
+{% endblock %}

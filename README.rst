@@ -1,4 +1,4 @@
-PracticeConversation (see it at http://practiceconversation.com)
+Practice Conversation.com
 ================================
 
 A simple web app serving web rooms to practice languages (english, spanish, or whatever you like).

@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}PracticeConversation.com{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-lg-9 col-md-offset-2">
+      <p><h1>Welcome to PracticeConversation.com!</h1></p>
+      <strong>Choose your destiny. For destiny I mean a language to practice with another student.</strong>
+      <p>&nbsp;</p>
+    </div>
+
+    <div class="row">
+      
+      <a href="/rooms/english">
+        <div class="col-lg-2 col-md-offset-2">
+          <button type="button" class="btn btn-lg btn-danger">
+            <img style="width:150px" src="/img/english.png"><br>
+            English
+          </button>
+        </div>
+      </a>
+
+      <a href="/rooms/spanish">
+        <div class="col-lg-2 col-md-offset-2">
+          <button type="button" class="btn btn-lg btn-warning">
+            <img style="width:150px" src="/img/spanish.png"><br>
+            Spanish
+          </button>
+        </div>
+      </a>
+
+    </div>
+    
+    <div class="row">
+      &nbsp;
+    </div>
+
+    <div class="row">
+
+      <a href="/rooms/french">
+        <div class="col-lg-2 col-md-offset-2">
+          <button type="button" class="btn btn-lg btn-info">
+            <img style="width:150px" src="/img/french.png"><br>
+            French
+          </button>
+        </div>
+      </a>
+
+      <a href="/rooms/portuguese">
+        <div class="col-lg-2 col-md-offset-2">
+          <button type="button" class="btn btn-lg btn-success">
+            <img style="width:150px" src="/img/portuguese.png"><br>
+            Portuguese
+          </button>
+        </div>
+      </a>
+
+    </div>
+
+  <div class="row">
+    <h2>Tested using Google Chrome and Mozilla Firefox. <br>
+    You must enable your webcam.</h2>
+  </div>
+
+  </div>
+{% endblock %}
