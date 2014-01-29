@@ -1,5 +1,6 @@
-PracticeConversation (see it at http://practiceconversation.com)
+PracticeConversation 
 ================================
+(see it at http://practiceconversation.com)
 
 A simple web app serving web rooms to practice languages (english, spanish, or whatever you like).
 
@@ -14,9 +15,9 @@ Roberto Civille Rodrigues (roberto.cr@gmail.com)
 Stack
 -------------------------------------------------
 
-* Python (www.python.org)
-* Flask (flask.pocoo.org)
-* SimpleWebRTC (simplewebrtc.com)
+* Python (http://www.python.org)
+* Flask (http://flask.pocoo.org)
+* SimpleWebRTC (http://simplewebrtc.com)
 
 
 Running Locally
