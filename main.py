@@ -14,8 +14,8 @@ app.debug = True
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RTMARIANA'
 app.config.update(
     MAIL_SERVER = 'smtp.webfaction.com',
-    MAIL_USERNAME = 'squarevendas',
-    MAIL_PASSWORD = '123mudar',
+    MAIL_USERNAME = '',
+    MAIL_PASSWORD = '',
     MAIL_DEFAULT_SENDER = 'contact@doingcast.com',
 )
 mail = Mail(app)
