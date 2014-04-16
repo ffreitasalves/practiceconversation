@@ -117,8 +117,8 @@ def leave():
 @app.route('/rooms/<language>')
 def room(language):
     #Se ele não acessou a página inicial, tem que voltar pra lá
-    if not session.get('home'):
-        return redirect('/')
+    #if not session.get('home'):
+    #    return redirect('/')
 
     con = sqlite3.connect(DATABASE)
     cur = con.cursor()
@@ -144,6 +144,16 @@ def room(language):
     con.close()
     return  render_template('room.html',language=language,room_id = room_id)
 
+# /new_room handler
+@app.route('/new_room', methods = ['POST',])
+def create_room():
+    if request.method == 'POST':
+        room_name = request.form.get('room_name')
+        
+        return redirect('/rooms/%s' % room_name)
+
+    else:
+        return redirect('/')
 
 if __name__ == '__main__':
     app.run()
